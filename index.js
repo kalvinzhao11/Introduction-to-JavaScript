@@ -200,7 +200,19 @@ console.log(grade(70));
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
-
+vowels = (word) => {
+    let count = 0;
+    word = word.toLowerCase()
+    for (let i = 0; i < word.length; i++) {
+        console.log(word.charAt(i));
+        check = word.charAt(i)
+        if (check == "a" || check == "e" || check == "i" || check == "o" || check == "u") {
+            count ++;
+        }
+    }
+    return count;
+}
+console.log(vowels("kalvin"));
 
 
 
