@@ -1,27 +1,37 @@
 /************************************************************** Task 1: Warm-up! **************************************************************/
 //Task a: declare a variable called votingAge, console log true if age > 18 (no function required)
-var votingAge = 19
+const votingAge = 19;
 if (votingAge > 18){
-    console.log("true");
+    console.log(true);
 }
 
 
 
 
 //Task b: declare a variable and then use a conditional to change the value of that variable based on the value assigned to a second variable (no function required)
+let myName = "kalvin";
+const yourName = "you";
 
+if (myName == "kalvin") {
+    myName = yourName;
+}
+console.log(myName);
 
 
 
 
 //Task c: Convert string ("1999") to integer (1999)  (no function required) // hint look up the Number method
-
+var date = Number("1999");
+console.log(date);
 
 
 
 
 //Task d: Write a function to multiply a*b 
-
+function multiply(a, b){
+    return a * b;
+}
+console.log(multiply(4, 6));
 
 
 
@@ -29,7 +39,10 @@ if (votingAge > 18){
 /************************************************************** Task 2 **************************************************************/
 //Age in Dog years
 //write a function that takes your age and returns it to you in dog years - they say that 1 human year is equal to seven dog years 
-
+function dogYears(year){
+    return 7 * year;
+}
+console.log(dogYears(22));
 
 
 
@@ -51,8 +64,30 @@ if (votingAge > 18){
 // 7 - 12 months 4% of their body weight
 
 // when you are finished invoke your function with the weight of 15 lbs and the age of 1 year - if your calculations are correct your result should be 0.44999999999999996
-  
-
+function dogFeeder(weight, age){
+    let food = 0;
+    if (age >= 1){
+        if (weight < 6){
+            food = .05 * weight;
+        } else if (weight <11){
+            food = .04 * weight;
+        } else if (weight <= 15){
+            food = .03 * weight;
+        } else {
+            food = .02 * weight;
+        }
+    } else {
+        if (age >=2/12 && age <= 5/12){
+            food = .1 * weight;
+        } else if (age <= 7/12){
+            food = .05 * weight;
+        } else if (age <1){
+            food = .04 * weight;
+        }
+    }
+    return food;
+}
+console.log(dogFeeder(15,1));
 
 
 
@@ -62,20 +97,60 @@ if (votingAge > 18){
 // it should return you won or you lost based on the rules of the game (you may need to look up the rules if you have not played before)
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
-
-  
+function rps(hand){
+    let ai;
+    let value = Math.random();
+    if (value <= .3333){
+        ai = "Rock";
+    } else if (value <= .6666){
+        ai = "Paper";
+    } else {
+        ai = "Sissors";
+    }
+    switch (hand){
+        case ("Rock"):
+            if (ai == "Rock"){
+                return "draw";
+            } else if (ai == "Paper"){
+                return "You lose!";
+            } else {
+                return "You win!";
+            }
+        case ("Paper"):
+            if (ai == "Paper"){
+                return "draw";
+            } else if (ai == "Sissors"){
+                return "You lose!";
+            } else {
+                return "You win!";
+            }
+        case ("Sissors"):
+            if (ai == "Sissors"){
+                return "draw";
+            } else if (ai == "Rock"){
+                return "You lose!";
+            } else {
+                return "You win!";
+            }
+        default:
+            return "Not a valide move";
+    }
+}
+console.log(rps("Paper"));
   
 
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
-
+kmToMiles = (km) => String(km * 0.621371) + " miles";
+console.log(kmToMiles(12));
 
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-  
+feetToCm = (feet) => String(feet * 30.48) + " CM";
+console.log(feetToCm(4));
 
 
 
@@ -84,8 +159,14 @@ if (votingAge > 18){
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
-
+annoyingSong = (startingNumber) => {
+    while (startingNumber > 0){
+        console.log(startingNumber + " bottles of soda on the wall, " + startingNumber + " bottles of soda");
+        startingNumber--;
+        console.log("take one down pass it around " + startingNumber + " bottles of soda on the wall");
+    }
+}
+annoyingSong(5)
 
 
 
@@ -97,7 +178,20 @@ if (votingAge > 18){
 //70s should be Cs 
 //60s should be D 
 //and anything below 60 should be F
-  
+grade = (enterGrade) => {
+    if (enterGrade >= 90) {
+        return "A";
+    } else if (enterGrade >= 80) {
+        return "B";
+    } else if (enterGrade >= 70) {
+        return "C";
+    } else if (enterGrade >= 60) {
+        return "D";
+    } else {
+        return "F";
+    }
+}
+console.log(grade(70));
 
   
   
