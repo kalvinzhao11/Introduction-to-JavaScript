@@ -100,32 +100,33 @@ console.log(dogFeeder(15,1));
 function rps(hand){
     let ai;
     let value = Math.random();
+    hand = hand.toLowerCase();
     if (value <= .3333){
-        ai = "Rock";
+        ai = "rock";
     } else if (value <= .6666){
-        ai = "Paper";
+        ai = "paper";
     } else {
-        ai = "Sissors";
+        ai = "sissors";
     }
     switch (hand){
-        case ("Rock"):
-            if (ai == "Rock"){
+        case ("rock"):
+            if (ai == "rock"){
                 return "draw";
-            } else if (ai == "Paper"){
+            } else if (ai == "paper"){
                 return "You lose!";
             } else {
                 return "You win!";
             }
-        case ("Paper"):
-            if (ai == "Paper"){
+        case ("paper"):
+            if (ai == "paper"){
                 return "draw";
-            } else if (ai == "Sissors"){
+            } else if (ai == "sissors"){
                 return "You lose!";
             } else {
                 return "You win!";
             }
-        case ("Sissors"):
-            if (ai == "Sissors"){
+        case ("sissors"):
+            if (ai == "sissors"){
                 return "draw";
             } else if (ai == "Rock"){
                 return "You lose!";
@@ -204,7 +205,6 @@ vowels = (word) => {
     let count = 0;
     word = word.toLowerCase()
     for (let i = 0; i < word.length; i++) {
-        console.log(word.charAt(i));
         check = word.charAt(i)
         if (check == "a" || check == "e" || check == "i" || check == "o" || check == "u") {
             count ++;
@@ -220,8 +220,7 @@ console.log(vowels("kalvin"));
 /************************************************************** Stretch **************************************************************/
 //Take Rock, Paper, Sissors further
 //update your rock papers sissors code below to take a prompt from a user using the window object
-
-
-
+play = prompt("Enter Rock, Paper, or Sissors");
+console.log(rps(play));
 
 
